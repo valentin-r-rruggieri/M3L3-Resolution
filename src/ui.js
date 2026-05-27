@@ -47,19 +47,31 @@ export function render(state) {
  * buildPokemonCard(pokemon)
  * -------------------------
  * Construye el HTML de la tarjeta con los datos del pokémon.
- * Campos usados: name, id, sprites.front_default, height, weight
+ * Campos usados: name, id, sprites, types, height, weight, base_experience
  */
 function buildPokemonCard(pokemon) {
-  const img = pokemon.sprites.front_default || "";
+  const img =
+    pokemon.sprites.other["official-artwork"].front_default ||
+    pokemon.sprites.front_default ||
+    "";
   const name = pokemon.name;
   const id = `#${String(pokemon.id).padStart(3, "0")}`;
   const height = (pokemon.height / 10).toFixed(1) + " m";
   const weight = (pokemon.weight / 10).toFixed(1) + " kg";
+  const experience = pokemon.base_experience || "N/D";
+  const types = pokemon.types
+    .map((item) => `<span class="pokemon-card__type">${item.type.name}</span>`)
+    .join("");
 
   return `
-    <img src="${img}" alt="Sprite de ${name}" />
-    <p class="pokemon-card__id">${id}</p>
-    <h2 class="pokemon-card__name">${name}</h2>
+    <div class="pokemon-card__media">
+      <img src="${img}" alt="Imagen de ${name}" />
+    </div>
+    <div class="pokemon-card__header">
+      <h2 class="pokemon-card__name">${name}</h2>
+      <p class="pokemon-card__id">${id}</p>
+    </div>
+    <div class="pokemon-card__types">${types}</div>
     <div class="pokemon-card__stats">
       <div class="pokemon-card__stat">
         <span>Altura</span>
@@ -68,6 +80,10 @@ function buildPokemonCard(pokemon) {
       <div class="pokemon-card__stat">
         <span>Peso</span>
         <strong>${weight}</strong>
+      </div>
+      <div class="pokemon-card__stat">
+        <span>EXP</span>
+        <strong>${experience}</strong>
       </div>
     </div>
   `;

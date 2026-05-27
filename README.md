@@ -4,6 +4,8 @@ Este ejercicio construye un buscador visual de Pokémon usando Fetch API, `async
 La app demuestra el patrón completo para pedir datos a una API externa sin dejar la pantalla en blanco: doble `await`, validación de `response.ok`, estados `idle/loading/success/error` y botón de retry.
 No usa frameworks, bundlers ni npm: funciona con HTML, CSS y módulos ES en el navegador.
 
+Para explicar la solución archivo por archivo y guiar el pasaje desde el starter, usá [GUIA_VISUAL.md](./GUIA_VISUAL.md).
+
 ---
 
 ## 2. El problema que resuelve: del fetch roto al fetch robusto
