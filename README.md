@@ -1,4 +1,5 @@
 # Buscador de Pokémon — Ejercicio Práctico M3L3
+<img width="1024" height="733" alt="image" src="https://github.com/user-attachments/assets/d5916b4f-8fdb-4009-bc48-122783da656d" />
 
 Este ejercicio construye un buscador visual de Pokémon usando Fetch API, `async/await` y manejo explícito de estados de UI.
 La app demuestra el patrón completo para pedir datos a una API externa sin dejar la pantalla en blanco: doble `await`, validación de `response.ok`, estados `idle/loading/success/error` y botón de retry.
